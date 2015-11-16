@@ -1,0 +1,13 @@
+footer {
+	background-color: #333;
+	color: #eee;
+}
+
+ul.unstyled {
+	list-style: none;
+	padding: 0;
+}
+
+.content {
+	margin: 100px 0px;
+}
