@@ -11,3 +11,8 @@ ul.unstyled {
 .content {
 	margin: 100px 0px;
 }
+
+#addEmployeeDiv {
+	background-color: #333;
+	color: #eee;
+}

@@ -1,6 +1,6 @@
 <?php include("header.php"); ?>
 
-<div class="container">
+<div class="container" id="addEmployeeDiv">
 	<div class="content">
 		<form>
 		  <div class="form-group">
