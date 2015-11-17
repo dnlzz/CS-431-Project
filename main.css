@@ -15,7 +15,10 @@ ul.unstyled {
 
 #addEmployeeDiv {
 	background-color: #333;
-	width: 100%;
-	padding: 0% 10%;
+	padding: 0% 15%;
 	
+}
+
+.navbar-wrapper {
+	margin-bottom: -22px;
 }
