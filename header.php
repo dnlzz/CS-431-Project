@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="main.css">
 
-	<title>Home | <?php echo TITLE; ?></title>
+	<title><?php echo $pageTitle; ?> | <?php echo TITLE; ?></title>
 </head>
 
 <body>
@@ -41,11 +41,10 @@
             <ul class="dropdown-menu">
               <li><a href="updateEmp.php">Employee</a></li>
               <li><a href="updateProd.php">Product</a></li>
+              <li><a href="#">Inventory</a></li>
             </ul>
           </li>
 
-            <li <?=echoActiveClassIfRequestMatches("search")?>>
-              <a href="search.php">Search</a></li>
   <?php 
 
   function echoActiveClassIfRequestMatches($requestUri)

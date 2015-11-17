@@ -1,4 +1,7 @@
-<?php include("header.php"); ?>
+<?php 
+	$pageTitle = "Update Employee";
+	include("header.php"); 
+?>
 
 <div class="container">
 	<div class="content">

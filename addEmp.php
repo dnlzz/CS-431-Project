@@ -1,4 +1,8 @@
-<?php include("header.php"); ?>
+<?php 
+	$pageTitle = "Add Employee";
+	include("header.php"); 
+?>
+
 
 <div class="container-fluid" id="addEmployeeDiv">
 	<div class="content">

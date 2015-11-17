@@ -1,5 +1,7 @@
-<?php include("header.php"); ?>
-
+<?php 
+	$pageTitle = "Add Product";
+	include("header.php"); 
+?>
 <div class="container-fluid" id="addEmployeeDiv">
 	<div class="content">
 		<form>
