@@ -19,13 +19,13 @@
       <div class="col-md-2"></div>
         <div class="col-md-4">
           <h2>Feature: Adding Employees/Products</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus corporis repudiandae enim error aliquid culpa quod possimus excepturi nam illum, assumenda sequi eos, id nesciunt quos accusantium tenetur et accusamus!</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p>This feature allows you to add an employee or product. Amazing!</p>
+          <p><a class="btn btn-default" href="#" role="button">Learn more &raquo;</a></p>
         </div>
         <div class="col-md-4">
           <h2>Feature: Updating Employess/Products</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam porro perspiciatis, quod assumenda itaque eos molestias tenetur similique doloremque numquam error, natus ipsam mollitia possimus reiciendis placeat modi eligendi! Minus!</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <p>This feature allows you to update or remove an employee or product. Amazing!</p>
+          <p><a class="btn btn-default" href="#" role="button">Learn More &raquo;</a></p>
        </div>
        <div class="col-md-2"></div>
       </div>
