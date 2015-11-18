@@ -5,10 +5,8 @@
 
    
     <div class="jumbotron">
-      <div class="container">
-        <h1>Welcome!</h1>
-        <p>We hope you enjoy managing your supermarket!</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      <div class="container centered">
+       <img src="http://amanoverseas.com/blog/wp-content/uploads/2013/11/fmcg.jpg" alt="Go You!">
       </div>
     </div>
 
