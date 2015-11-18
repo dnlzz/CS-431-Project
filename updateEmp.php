@@ -4,7 +4,7 @@
 	include("accounts.php");
 
 		// Create connection
-	$conn = mysqli_connect($hostname, $username, $password);
+	$conn = mysql_connect($hostname, $username, $password);
 
 	// Check connection
 	if (!$conn) {
@@ -26,22 +26,17 @@
 
 		while ( $r = mysql_fetch_array($t) )//getting data from sql table and displaying in html table
 		{
-		    print   "<tr>";
-		        print   "<td>";
-			print $r["ID"]; //this is how you retrieve information from each row
-		        print   "</td>";
-		        print   "<td>";
-			print $r["Name"]; //this is how you retrieve information from each row
-		        print   "</td>";
-		        print   "<td>";
-			print $r["Favorite Team"]; //this is how you retrieve information from each row
-		        print   "</td>";
-		        print   "<td>";
-			print $r["Win/Loss"]; //this is how you retrieve information from each row
-		        print   "</td>";
-		    print   "</tr>";
+			echo "<tr>"
+		        echo   "<td>";
+			echo $r["Department_ID"]; //this is how you retrieve information from each row
+		        echo   "</td>";
+		        echo   "<td>";
+			echo $r["Department_name"]; //this is how you retrieve information from each row
+		        echo   "</td>";
+		    echo   "</tr>";
 		}
-		print "</table>";
+
+		echo "</table>";
 	 ?>
 
 	</div>
