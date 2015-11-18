@@ -3,13 +3,13 @@
 	include("header.php"); 
 	include("accounts.php")
 
-	// Create connection
-	$conn = new mysqli($hostname, $username, $password);
+		// Create connection
+	$conn = mysqli_connect($hostname, $username, $password);
 
 	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error);
-	} 
+	if (!$conn) {
+	    die("Connection failed: " . mysqli_connect_error());
+	}
 	echo "Connected successfully";
 
 ?>
@@ -22,7 +22,7 @@
 	<?php 
 
 		$s = "select * from Employee;"
-?>
+	?>
 
 <!--
 		( $t = mysql_query ( $s ) ) or die ( mysql_error() ); //Sends sql query to database
