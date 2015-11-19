@@ -24,9 +24,10 @@
 		    
 		echo "<table>";
 
+
 		while ( $r = mysql_fetch_assoc($t) )//getting data from sql table and displaying in html table
 		{
-			echo "<tr>"
+			echo "<tr>";
 		        echo   "<td>";
 				echo $r["DEPARTMENT_ID"]; //this is how you retrieve information from each row
 		        echo   "</td>";
