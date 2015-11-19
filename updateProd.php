@@ -13,10 +13,10 @@
 
 ?>
 
-<div class="container feature">
+<div class="container-fluid feature">
 	<div class="content">
-	SELECT * FROM EMPLOYEE
-	Have Edit/Delete Buttons
+
+	<h1>Products</h1>
 
 	<?php $s = "SELECT * FROM PRODUCT"; 
 
@@ -24,29 +24,20 @@
 		    
 		$numCols = mysql_num_fields($t);
 
-		echo "<table class=\"table\">";
+		echo "<table class=\"table table-wrapper\">";
 
-		#ADD HEADERS
-
-		while ( $row = mysql_fetch_array($t) )//getting data from sql table and displaying in html table
+		while ( $row = mysql_fetch_assoc($t) )
 		{
 
 			echo "<tr>";
 
-			for ($col = 0; $col < $numCols; $col++) {
-
-		        echo   "<td>";
-				echo $row[$col]; //this is how you retrieve information from each row
-		        echo   "</td>";
-		    
-			}
-			
-			##ADD EDIT/REMIOVE BUTTONS
+		        echo "<td>" . $row["Product_name"] . "</td>";
+		        echo "<td>" . $row["Product_price"] . "</td>";
+		        echo   "<td>" .  "<p><a class=\"btn btn-default\" href=\"#\" role=\"button\">Edit</a></p>" . "</td>";		
+				echo   "<td>" .  "<p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Remove</a></p>" . "</td>";	
 
 			echo   "</tr>";
-
 		}
-
 		echo "</table>";
 		
 	 ?>

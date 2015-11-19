@@ -15,8 +15,7 @@
 				<h6>Navigation</h6>
 				<ul class="unstyled">
 					<li><a href="#">Home</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Menu</a></li>
+					<li><a href="#">About Us</a></li>
 					<li><a href="#">Contact</a></li>
 				</ul>
 			</div><!-- end col-sm-2 -->

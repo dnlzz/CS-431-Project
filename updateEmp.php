@@ -13,10 +13,9 @@
 
 ?>
 
-<div class="container feature">
+<div class="container-fluid feature">
 	<div class="content">
-	SELECT * FROM EMPLOYEE
-	Have Edit/Delete Buttons
+	<h1>Employees</h1>
 
 	<?php $s = "SELECT * FROM EMPLOYEE"; 
 
@@ -24,34 +23,26 @@
 		    
 		$numCols = mysql_num_fields($t);
 
-		echo "<table class=\"table\">";
+		echo "<table class=\"table table-wrapper\">";
 
-		#ADD HEADERS
-
-		while ( $row = mysql_fetch_array($t) )//getting data from sql table and displaying in html table
+		
+		while ( $row = mysql_fetch_assoc($t) )
 		{
 
 			echo "<tr>";
 
-			for ($col = 0; $col < $numCols; $col++) {
-
-		        echo   "<td>";
-				echo $row[$col]; //this is how you retrieve information from each row
-		        echo   "</td>";
-		    
-			}
-			
-			##ADD EDIT/REMIOVE BUTTONS
+		        echo   "<td>" . $row["Employee_last_name"] . ", " . $row["Employee_first_name"] . "</td>";
+		        echo   "<td>" . $row["Employee_street_name"] . " " . $row["Employee_city"] . ", " . $row["Employee_state"] . "</td>";
+				echo   "<td>" .  "<p><a class=\"btn btn-default\" href=\"#\" role=\"button\">Edit</a></p>" . "</td>";		
+				echo   "<td>" .  "<p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Remove</a></p>" . "</td>";		
 
 			echo   "</tr>";
-
 		}
 
 		echo "</table>";
 		
 	 ?>
 	
-
 	</div>
 </div>
 
