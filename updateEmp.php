@@ -5,7 +5,7 @@
 
 		// Create connection
 	$conn = mysql_connect($hostname, $username, $password);
-	mysql_select_db("Supermarket");
+	$db = mysql_select_db("Supermarket");
 	// Check connection
 	if (!$conn) {
 	    die("Connection failed: " . mysqli_connect_error());
@@ -18,24 +18,33 @@
 	SELECT * FROM EMPLOYEE
 	Have Edit/Delete Buttons
 
-	<?php $s = "SELECT * FROM DEPARTMENT"; 
+	<?php $s = "SELECT * FROM EMPLOYEE"; 
 
 		( $t = mysql_query($s) ) or die ( mysql_error() ); //Sends sql query to database
 		    
-		echo "<table>";
+		$numCols = mysql_num_fields($t);
 
+		echo "<table class=\"table\">";
 
-		while ( $r = mysql_fetch_assoc($t) )//getting data from sql table and displaying in html table
+		#ADD HEADERS
+
+		while ( $row = mysql_fetch_array($t) )//getting data from sql table and displaying in html table
 		{
+
 			echo "<tr>";
-		        echo   "<td>";
-				echo $r["DEPARTMENT_ID"]; //this is how you retrieve information from each row
-		        echo   "</td>";
+
+			for ($col = 0; $col < $numCols; $col++) {
 
 		        echo   "<td>";
-				echo $r["DEPARTMENT_NAME"]; //this is how you retrieve information from each row
+				echo $row[$col]; //this is how you retrieve information from each row
 		        echo   "</td>";
-		    echo   "</tr>";
+		    
+			}
+			
+			##ADD EDIT/REMIOVE BUTTONS
+
+			echo   "</tr>";
+
 		}
 
 		echo "</table>";
