@@ -95,12 +95,13 @@
 			    	$salary = test_input($_POST["salary"]);
 			    }
 
-			    if ( (!empty($_POST["firstName"])) && (!empty($_POST["lastName"])) && (!empty($_POST["phNum"])) && (!empty($_POST["address"]))
-			    		&& (!empty($_POST["city"])) && (!empty($_POST["state"])) ) 
+			    if ( (!empty($_POST["firstName"])) and (!empty($_POST["lastName"])) and (!empty($_POST["phNum"])) and (!empty($_POST["address"]))
+			    		and (!empty($_POST["city"])) and (!empty($_POST["state"])) ) 
 			    {
-			    	$sql = "INSERT INTO EMPLOYEE (Employee_first_name, Employee_last_name, Employee_salary, Employee_date_of_birth, Employee_phone, Employee_street_name, Employee_city, Employee_state) VALUES ('$firstName', '$lastName', '$salary', '$dob', '$phNum', '$street', '$city', '$state')";
+			    	$sql = "INSERT INTO Employee (Employee_first_name, Employee_last_name, Employee_salary, Employee_date_of_birth, Employee_phone, Employee_street_name, Employee_city, Employee_state) VALUES ('$firstName', '$lastName', '$salary', '$dob', '$phNum', '$street', '$city', '$state')";
 			    	if ( $result = mysql_query($sql) ) {
-			    		$success = "Employee added!";	
+			    		$success = "Employee added!";
+			    		echo $success;	
 			    	} else {
 			    		echo "ERROR ADDING EMPLOYEE";
 		    		}

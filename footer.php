@@ -8,7 +8,7 @@
 			
 			<div class="col-sm-6">
 				<h6>About Us</h6>
-				<p>This is a good place to put some information about us...</p>
+				<p>A project for CS-431.</p>
 			</div><!-- end col-sm-4 -->
 			
 			<div class="col-sm-2">
