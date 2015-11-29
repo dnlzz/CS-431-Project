@@ -99,7 +99,7 @@
 			    		&& (!empty($_POST["city"])) && (!empty($_POST["state"])) ) 
 			    {
 			    	$sql = "INSERT INTO EMPLOYEE (Employee_first_name, Employee_last_name, Employee_salary, Employee_date_of_birth, Employee_phone, Employee_street_name, Employee_city, Employee_state) VALUES ('$firstName', '$lastName', '$salary', '$dob', '$phNum', '$street', '$city', '$state')";
-			    	if ( mysql_query($sql) ) {
+			    	if ( $result = mysql_query($sql) ) {
 			    		$success = "Employee added!";	
 			    	} else {
 			    		echo "ERROR ADDING EMPLOYEE";
