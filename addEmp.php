@@ -1,6 +1,16 @@
 <?php 
 	$pageTitle = "Add Employee";
 	include("header.php"); 
+
+	include("accounts.php");
+
+		// Create connection
+	$conn = mysql_connect($hostname, $username, $password);
+	$db = mysql_select_db("Supermarket");
+	// Check connection
+	if (!$conn) {
+	    die("Connection failed: " . mysqli_connect_error());
+	}
 ?>
 
 
@@ -88,7 +98,13 @@
 			    if ( (!empty($_POST["firstName"])) && (!empty($_POST["lastName"])) && (!empty($_POST["phNum"])) && (!empty($_POST["address"]))
 			    		&& (!empty($_POST["city"])) && (!empty($_POST["state"])) ) 
 			    {
-			    	$success = "Employee added!";
+			    	$sql = "INSERT INTO EMPLOYEE (Employee_first_name, Employee_last_name, Employee_salary, Employee_date_of_birth, Employee_phone, Employee_street_name, Employee_city, Employee_state) VALUES ('$firstName', '$lastName', '$salary', '$dob', '$phNum', '$street', '$city', '$state')";
+			    	if ( mysql_query($sql) ) {
+			    		$success = "Employee added!";	
+			    	} else {
+			    		echo "ERROR ADDING EMPLOYEE";
+		    		}
+			    	
 			    }
 
 			}
@@ -147,6 +163,8 @@
 	    	<label for="salary">Salary</label>
 	    	<input type="text" class="form-control" name="salary" placeholder="ex 36000">
 		  </div>
+
+		
 
 		  <button type="submit" class="btn btn-success" name="submit">Add Employee</button>
 		</form>
