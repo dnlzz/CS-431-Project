@@ -106,7 +106,7 @@
 			    if ( (!empty($_POST["firstName"])) and (!empty($_POST["lastName"])) and (!empty($_POST["phNum"])) and (!empty($_POST["address"]))
 			    		and (!empty($_POST["city"])) and (!empty($_POST["state"])) and (!empty($_POST["department"])) ) 
 			    {
-			    	$sql = "INSERT INTO EMPLOYEE (Employee_first_name, Employee_last_name, Employee_salary, Employee_date_of_birth, Employee_phone, Employee_street_name, Employee_city, Employee_state, Department_ID) VALUES ('$firstName', '$lastName', '$salary', '$dob', '$phNum', '$street', '$city', '$state', 2);";
+			    	$sql = "INSERT INTO EMPLOYEE (Employee_first_name, Employee_last_name, Employee_salary, Employee_date_of_birth, Employee_phone, Employee_street_name, Employee_city, Employee_state, Department_ID) VALUES ('$firstName', '$lastName', '$salary', '$dob', '$phNum', '$street', '$city', '$state', '$department');";
 			    	
 			    	if ( mysql_query($sql) ) {
 			    		$success = "Employee added!";	
