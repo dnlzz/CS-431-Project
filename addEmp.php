@@ -174,9 +174,8 @@
 		  </div>
 
 		  <div class="form-group">
-	    	<label for="department">Department  <span class="error">* <?php echo $departmentErr;?></span></label>
-				<select name="department">
-					<option value="">Select...</option>
+	    	<label for="department">Department (select one)  *<span class="error"><?php echo $departmentErr;?></span></label><br>
+				<select class="form-control" name="department">
 				    <option value="1">Produce</option>
 				    <option value="2">Meat</option>
 				    <option value="3">Seafood</option>
