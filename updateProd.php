@@ -18,30 +18,61 @@
 
 	<h1>Products</h1>
 
-	<?php $s = "SELECT * FROM PRODUCT"; 
+<?php
+
+if( isset($_POST['prodID']) )
+{
+	$prodID = $_POST['prodID'];	
+	$sql = "DELETE FROM PRODUCT WHERE Product_ID = "."$prodID".";";
+}
+
+	if (mysql_query($sql)) {
+		echo "DELETED";
+	} else {
+		echo "ERROR";
+	}
+
+?>
+
+
+	<?php 
+
+		$s = "SELECT * FROM PRODUCT"; 
 
 		( $t = mysql_query($s) ) or die ( mysql_error() ); //Sends sql query to database
 		    
 		$numCols = mysql_num_fields($t);
 
 		echo "<table class=\"table table-wrapper\">";
-
-		while ( $row = mysql_fetch_assoc($t) )
-		{
-
-			echo "<tr>";
-
-		        echo "<td>" . $row["Product_name"] . "</td>";
-		        echo "<td>" . $row["Product_price"] . "</td>";
-		        echo   "<td>" .  "<p><a class=\"btn btn-default\" href=\"#\" role=\"button\">Edit</a></p>" . "</td>";		
-				echo   "<td>" .  "<p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Remove</a></p>" . "</td>";	
-
-			echo   "</tr>";
-		}
-		echo "</table>";
-		
-	 ?>
 	
+	while ( $row = mysql_fetch_assoc($t) ) :
+		?>
+
+        	<form method = "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                  <table class="table table-wrapper">
+                     
+                     <tr>
+						<td>
+							<?php echo $row["Product_name"]; ?>
+						</td>
+						<td>
+							<?php echo $row["Product_price"]; ?>
+						</td>
+						<td>
+							<p><a href="#" class="btn btn-default" role="button">Edit</a></p>
+						</td>
+                        <td>
+                        <input name = "prodID" type = "hidden" id = "prodID" value="<?php echo $row['Product_ID']; ?>">
+                        </td>
+                    	
+                        <td>
+                           <input name = "delete" type = "submit" id = "delete" class = "btn btn-danger" value = "Remove">
+                        </td>
+                     </tr>
+                     
+                  </table>
+               </form>
+            <?php endwhile ; ?>
 
 	</div>
 </div>
