@@ -20,6 +20,8 @@
 
 <?php
 
+	$success = "";
+
 if( isset($_POST['prodID']) )
 {
 	$prodID = $_POST['prodID'];	
@@ -27,13 +29,12 @@ if( isset($_POST['prodID']) )
 }
 
 	if (mysql_query($sql)) {
-		echo "DELETED";
-	} else {
-		echo "ERROR";
-	}
+		$success = "Employee added!";	
+	} 
 
 ?>
 
+	<h3><?php echo $success; ?></h3>
 
 	<?php 
 
@@ -59,7 +60,7 @@ if( isset($_POST['prodID']) )
 							<?php echo $row["Product_price"]; ?>
 						</td>
 						<td>
-							<p><a href="#" class="btn btn-default" role="button">Edit</a></p>
+							<a href="#" class="btn btn-default" role="button">Edit</a>
 						</td>
                         <td>
                         <input name = "prodID" type = "hidden" id = "prodID" value="<?php echo $row['Product_ID']; ?>">
