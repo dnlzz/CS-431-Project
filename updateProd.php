@@ -18,22 +18,6 @@
 
 	<h1>Products</h1>
 
-<?php
-
-	$success = "";
-
-if( isset($_POST['prodID']) )
-{
-	$prodID = $_POST['prodID'];	
-	$sql = "DELETE FROM PRODUCT WHERE Product_ID = "."$prodID".";";
-}
-
-	if (mysql_query($sql)) {
-		$success = "Employee added!";	
-	} 
-
-?>
-
 	<h3><?php echo $success; ?></h3>
 
 	<?php 
@@ -41,39 +25,56 @@ if( isset($_POST['prodID']) )
 		$s = "SELECT * FROM PRODUCT"; 
 
 		( $t = mysql_query($s) ) or die ( mysql_error() ); //Sends sql query to database
-		    
-		$numCols = mysql_num_fields($t);
-
-		echo "<table class=\"table table-wrapper\">";
+	?>
 	
-	while ( $row = mysql_fetch_assoc($t) ) :
-		?>
+          <table class="table table-wrapper" colspan="0">
+          <tr>
+          	<th>Product</th>
+          	<th>Price</th>
+          	<th>Department</th>
+          	<th>Supplier</th>
+          </tr>
 
-        	<form method = "post" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-                  <table class="table table-wrapper">
-                     
-                     <tr>
-						<td>
-							<?php echo $row["Product_name"]; ?>
-						</td>
-						<td>
-							<?php echo $row["Product_price"]; ?>
-						</td>
-						<td>
-							<a href="#" class="btn btn-default" role="button">Edit</a>
-						</td>
-                        <td>
-                        <input name = "prodID" type = "hidden" id = "prodID" value="<?php echo $row['Product_ID']; ?>">
-                        </td>
-                    	
-                        <td>
-                           <input name = "delete" type = "submit" id = "delete" class = "btn btn-danger" value = "Remove">
-                        </td>
-                     </tr>
-                     
-                  </table>
-               </form>
-            <?php endwhile ; ?>
+	<?php
+
+	while ( $row = mysql_fetch_assoc($t) ) :
+  		$id = $row['Product_ID'];
+  		$product=$row['Product_name'];
+  		$price=$row['Product_price'];
+  		$department=$row['Department_ID'];
+  		$supplier=$row['Supplier_ID'];
+
+	?>
+
+
+
+             <tr>
+				<td>
+					<?php echo $product; ?>
+				</td>
+				<td>
+					<?php echo $price; ?>
+				</td>
+				<td>
+					<?php echo $department; ?>
+				</td>  
+				<td>
+					<?php echo $supplier; ?>
+				</td>                      	
+                <td>
+                	<a class="btn btn-default" name = "update" href="edit.php?id=<?php echo $id; ?>">Edit</a>
+                </td>
+            	
+                <td>
+                	<a class="btn btn-danger" name="delete" href="delete.php?id=<?php echo $id; ?>">Delete</a>
+                </td>
+             </tr>
+             
+
+
+    <?php endwhile ; ?>
+
+    	  </table>
 
 	</div>
 </div>

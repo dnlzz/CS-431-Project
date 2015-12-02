@@ -1,6 +1,6 @@
 <?php
 
-	$pageTitle = "Delete Product";
+	$pageTitle = "Delete Employee";
 	include("header.php"); 
 	include("accounts.php");
 
@@ -12,10 +12,10 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-if(isset($_POST['Product_ID']))
+if(isset($_POST['Employee_ID']))
 {
-	$id=$_POST['Product_ID'];
-	$query = mysql_query("DELETE FROM PRODUCT where Product_ID = '$id'");
+	$id=$_POST['Employee_ID'];
+	$query = mysql_query("DELETE FROM EMPLOYEE where Employee_ID = '$id'");
 	
 	if($query)
 	{
