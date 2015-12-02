@@ -26,7 +26,7 @@
 
 		( $t = mysql_query($s) ) or die ( mysql_error() ); //Sends sql query to database
 	?>
-	
+		<div class="container">
           <table class="table table-wrapper" colspan="0">
           <tr>
           	<th>Product</th>
@@ -75,7 +75,7 @@
     <?php endwhile ; ?>
 
     	  </table>
-
+		</div>
 	</div>
 </div>
 
