@@ -22,7 +22,8 @@
 
 	<?php 
 
-		$s = "SELECT * FROM EMPLOYEE"; 
+		$s = "SELECT * FROM EMPLOYEE e, DEPARTMENT d
+			  WHERE e.Department_ID = d.Department_ID"; 
 
 		( $t = mysql_query($s) ) or die ( mysql_error() ); //Sends sql query to database
 
@@ -52,7 +53,7 @@
   		$street= $row['Employee_street_name'];
   		$city= $row['Employee_city'];
   		$state = $row['Employee_state'];
-  		$department = $row['Department_ID'];
+  		$department = $row['Department_name'];
 
 	?>
 
@@ -90,9 +91,8 @@
              </tr>
         </form> 
 
-
     <?php endwhile ; ?>
-
+	
       	</table>
 	</div>
 	</div>
