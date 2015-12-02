@@ -12,15 +12,11 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-if(isset($_POST['Employee_ID']))
+if(isset($_GET['id']))
 {
-	$id=$_POST['Employee_ID'];
+	$id=$_GET['id'];
 	$query = mysql_query("DELETE FROM EMPLOYEE where Employee_ID = '$id'");
-	
-	if($query)
-	{
-			echo "DELETED";
-	}
+	header("Location: updateEmp.php");
 }
 
 ?>

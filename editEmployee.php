@@ -12,7 +12,7 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-	if (!isset($_POST['update'])) {
+	if (!isset($_POST['id'])) {
 		$UID = $_GET['id'];
 		$sql = "SELECT * FROM EMPLOYEE WHERE EMPLOYEE_ID = '$UID'";
 		$query = mysql_query($sql) or die(mysql_error());

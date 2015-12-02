@@ -12,15 +12,12 @@
 	    die("Connection failed: " . mysqli_connect_error());
 	}
 
-if(isset($_POST['Product_ID']))
+if(isset($_GET['id']))
 {
-	$id=$_POST['Product_ID'];
+	$id=$_GET['id'];
 	$query = mysql_query("DELETE FROM PRODUCT where Product_ID = '$id'");
+	header("Location: updateProd.php");
 	
-	if($query)
-	{
-			echo "DELETED";
-	}
 }
 
 ?>

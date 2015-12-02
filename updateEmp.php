@@ -28,7 +28,7 @@
 
 	?>
 		
-		<table class="table table-wrapper" colspan="0">
+		<table class="table table-wrapper" colspan="0" width="80%">
 
 		<tr>
 			<th>Name</th>
@@ -79,16 +79,14 @@
 				</td> 
 				<td>
 					<?php echo $department; ?>
-				</td>    
-				<td><?php echo $id; ?></td>          	
-                <td>
-                	<input type="hidden" name="editID" value="<?php echo $id; ?>">
-                	<input type="Submit" value="Edit" class="btn btn-default" name="editRec">
+				</td> 
+	            <td>
+                	<a class="btn btn-default" name = "update" href="editEmployee.php?id=<?php echo $id; ?>">Edit</a>
                 </td>
+            	
                 <td>
-                	<input type="hidden" name="delID" value="<?php echo $id; ?>">
-                	<input type="Submit" value="Remove" class="btn btn-danger" name="delRec">
-                </td>
+                	<a class="btn btn-danger" name="delete" href="deleteEmp.php?id=<?php echo $id; ?>">Delete</a>
+                </td>          	
              </tr>
         </form> 
 
@@ -99,22 +97,5 @@
 
 	</div>
 </div>
-
-<?php 
-	
-	if (isset($_POST['delRec'])) {
-		$ID = $_POST['delID'];
-		$query = "DELETE FROM EMPLOYEE WHERE Employee_ID = '$ID'";
-		echo $query;
-
-	}
-
-	
-	if (isset($_POST['editRec'])) {
-		$ID = $_POST['editID'];
-		header("Location: editEmployee.php?id=$ID");
-	}
-
- ?>
 
 <?php include("footer.php"); ?>
