@@ -49,22 +49,22 @@
 	    <div class="form-group">
 	    	<label for="department">Department (select one)</label>
 				<select class="form-control" name="ud_department">
-				    <option value="1" <?php if ($department == 5) { echo selected; } ?> >Produce</option>
-				    <option value="2" <?php if ($department == 2) { echo selected; } ?>>Meat</option>
-				    <option value="3" <?php if ($department == 3) { echo selected; } ?>>Seafood</option>
-				    <option value="4" <?php if ($department == 1) { echo selected; } ?>>Bakery</option>
-				    <option value="5">Deli</option>
-				    <option value="6">Pharmacy</option>
-				    <option value="7">Specialty</option>
-				    <option value="8">Frozen</option>
+				    <option value="1" <?php if ($department == 1) echo 'selected="selected"'; ?> >Produce</option>
+				    <option value="2" <?php if ($department == 2) echo 'selected="selected"'; ?> >Meat</option>
+				    <option value="3" <?php if ($department == 3) echo 'selected="selected"'; ?> >Seafood</option>
+				    <option value="4" <?php if ($department == 4) echo 'selected="selected"'; ?> >Bakery</option>
+				    <option value="5" <?php if ($department == 5) echo 'selected="selected"'; ?> >Deli</option>
+				    <option value="6" <?php if ($department == 6) echo 'selected="selected"'; ?> >Pharmacy</option>
+				    <option value="7" <?php if ($department == 7) echo 'selected="selected"'; ?> >Specialty</option>
+				    <option value="8" <?php if ($department == 8) echo 'selected="selected"'; ?> >Frozen</option>
 			  	</select>		
 	    </div>
 
 	    <div class="form-group">
 	    	<label for="supplier">Supplier (select one)</label><br>
 				<select class="form-control" name="ud_supplier">
-				    <option value="1">C&S Suppliers</option>
-				    <option value="2">AVS Suppliers</option>
+				    <option value="1" <?php if ($supplier == 1) echo 'selected="selected"'; ?> >C&S Suppliers</option>
+				    <option value="2" <?php if ($supplier == 2) echo 'selected="selected"'; ?> >AVS Suppliers</option>
 			  	</select>		
 	    </div>
 		<br>

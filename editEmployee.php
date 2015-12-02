@@ -88,14 +88,14 @@
 		  <div class="form-group">
 	    	<label for="department">Department (select one)</label><br>
 				<select class="form-control" name="ud_department">
-				    <option value="1">Produce</option>
-				    <option value="2">Meat</option>
-				    <option value="3">Seafood</option>
-				    <option value="4">Bakery</option>
-				    <option value="5">Deli</option>
-				    <option value="6">Pharmacy</option>
-				    <option value="7">Specialty</option>
-				    <option value="8">Frozen</option>
+				    <option value="1" <?php if ($department == 1) echo 'selected="selected"'; ?> >Produce</option>
+				    <option value="2" <?php if ($department == 2) echo 'selected="selected"'; ?> >Meat</option>
+				    <option value="3" <?php if ($department == 3) echo 'selected="selected"'; ?> >Seafood</option>
+				    <option value="4" <?php if ($department == 4) echo 'selected="selected"'; ?> >Bakery</option>
+				    <option value="5" <?php if ($department == 5) echo 'selected="selected"'; ?> >Deli</option>
+				    <option value="6" <?php if ($department == 6) echo 'selected="selected"'; ?> >Pharmacy</option>
+				    <option value="7" <?php if ($department == 7) echo 'selected="selected"'; ?> >Specialty</option>
+				    <option value="8" <?php if ($department == 8) echo 'selected="selected"'; ?> >Frozen</option>
 			  	</select>		
 		  </div>
 		<br>
