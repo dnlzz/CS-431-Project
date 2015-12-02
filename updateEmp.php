@@ -27,8 +27,9 @@
 		( $t = mysql_query($s) ) or die ( mysql_error() ); //Sends sql query to database
 
 	?>
-
+		
 		<table class="table table-wrapper" colspan="0">
+
 		<tr>
 			<th>Name</th>
 			<th>Birth Date</th>
@@ -54,7 +55,9 @@
   		$department = $row['Department_ID'];
 
 	?>
+
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+
              <tr>
 				<td>
 					<?php echo $lastName . ", " . $firstName; ?>
@@ -76,14 +79,15 @@
 				</td> 
 				<td>
 					<?php echo $department; ?>
-				</td>                     	
+				</td>    
+				<td><?php echo $id; ?></td>          	
                 <td>
-                	<a class="btn btn-default" name = "update" href="edit.php?id=<?php echo $id; ?>">Edit</a>
+                	<input type="hidden" name="editID" value="<?php echo $id; ?>">
+                	<input type="Submit" value="Edit" class="btn btn-default" name="editRec">
                 </td>
-            	
                 <td>
-                	<input type="hidden" name="<?php echo $id; ?>">
-                	<input type="Submit" value="Remove" class="btn btn-danger" name="delRec" id="delRec">
+                	<input type="hidden" name="delID" value="<?php echo $id; ?>">
+                	<input type="Submit" value="Remove" class="btn btn-danger" name="delRec">
                 </td>
              </tr>
         </form> 
@@ -99,7 +103,16 @@
 <?php 
 	
 	if (isset($_POST['delRec'])) {
-		header("Location: index.php");
+		$ID = $_POST['delID'];
+		$query = "DELETE FROM EMPLOYEE WHERE Employee_ID = '$ID'";
+		echo $query;
+
+	}
+
+	
+	if (isset($_POST['editRec'])) {
+		$ID = $_POST['editID'];
+		header("Location: editEmployee.php?id=$ID");
 	}
 
  ?>
