@@ -40,8 +40,8 @@ select * products that are in that warehouse
 		$wStock = $row['Warehouse_max_stock'];
 		$wLoc = $row['Warehouse_location']; 
 	?>
-
-	    <option value="<?php echo $wID; ?>"><?php echo $wLoc . ", " . $wName ?></option>
+		
+	    <option value="<?php echo $wID; ?>, <?php echo $wLoc; ?>"><?php echo $wLoc . ", " . $wName ?></option>
 	
 	<?php } ?>
 
@@ -54,13 +54,18 @@ select * products that are in that warehouse
 
 	if (isset($_POST['submit'])) {
 		$wID = $_POST['warehouse'];
-		$sql = "SELECT p.Product_name FROM PRODUCT p
-				LEFT JOIN INVENTORY i
-				ON p.Product_ID = i.Product_ID";
+		$arr = explode(', ', $wID);
+		$location = $arr[1];
+		$sql = "SELECT p.Product_name
+				FROM PRODUCT p
+				LEFT JOIN INVENTORY i on p.Product_ID = i.Product_ID
+				LEFT JOIN WAREHOUSE w on i.Warehouse_ID = w.Warehouse_ID
+				WHERE w.Warehouse_ID = '$wID'";
 		$result = mysql_query($sql);
 ?>
 	
 	<table class="table table-wrapper" colspan="0">
+		<h3>Managing <?php echo $location; ?> Warehouse</h3>
 
 <?php
 		while ($prod = mysql_fetch_assoc($result)) {
