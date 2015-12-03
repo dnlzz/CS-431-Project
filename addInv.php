@@ -17,11 +17,12 @@
 
 ?>
 
+
 <?php 
 
-	if (isset($_POST['addSubmit'])) {
+	if (!empty($_POST['addSubmit'])) {
 		$prodID = $_POST['product'];
-		$wareID = $_POST['wID'];
+		$wareID = $_POST['wareID'];
 		$quantity = $_POST['qty'];
 
 		$add_sql = "INSERT INTO INVENTORY (Product_ID, Warehouse_ID, Number_of_item_in_stock)
@@ -29,7 +30,7 @@
 
 		$res = ( mysql_query($add_sql) ) or die(mysql_error());
 
-		if ($res) { header("Location: index.php"); }
+		if ($res) { echo '<script type="text/javascript"> alert(\'Product added to inventory!\'); </script>'; }
 
 
 	}
@@ -49,7 +50,6 @@
 	while ($row = mysql_fetch_assoc($result)) {
 		$wID = $row['Warehouse_ID'];
 		$wName = $row['Warehouse_name'];
-		$wStock = $row['Warehouse_max_stock'];
 		$wLoc = $row['Warehouse_location']; 
 	?>
 		
@@ -67,6 +67,7 @@
 	if (isset($_POST['submit'])) {
 		$wID = $_POST['warehouse'];
 		$arr = explode(', ', $wID);
+		$wID = $arr[0];
 		$location = $arr[1];
 ?>
 	
@@ -81,8 +82,8 @@
 
 	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-	<input type="hidden" name="wID" value="<?php echo $wID; ?>">
-
+	<input type="hidden" name="wareID" value="<?php echo $wID; ?>">
+	
 	<div class="form-group">
 		<select class="form-control" name="product">
 		<option value="0" selected="selected">Select Product...</option>
@@ -105,7 +106,7 @@
 	    <input type="text" class="form-control" name="qty" placeholder="Quantity">
 	</div>
 
-    <button type="addSubmit" class="btn btn-success">Stock it!</button>
+    <input type="Submit" value="Stock it!" name="addSubmit" class="btn btn-success">		
 
 	</form>
 
