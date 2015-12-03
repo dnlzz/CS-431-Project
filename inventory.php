@@ -1,7 +1,3 @@
-select a warehouse
-select * products that are in that warehouse
-
-
 <?php 
 	$pageTitle = "Manage Inventory";
 	include("header.php"); 
@@ -75,7 +71,10 @@ select * products that are in that warehouse
 	 <tr>
 		<td>
 			<?php echo $pName; ?>
-		</td>       	
+		</td> 
+		<td>Display Quantity</td>
+		<td>Edit Button</td>
+      	<td>Remove BUtton</td>      	
      </tr>
 
  <?php

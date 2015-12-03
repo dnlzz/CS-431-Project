@@ -42,7 +42,7 @@
             <ul class="dropdown-menu">
               <li><a href="updateEmp.php">Employee</a></li>
               <li><a href="updateProd.php">Product</a></li>
-              <li><a href="inventory.php">Inentory</a></li>
+              <li><a href="inventory.php">Inventory</a></li>
             </ul>
           </li>
 
