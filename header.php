@@ -33,6 +33,7 @@
             <ul class="dropdown-menu">
               <li><a href="addEmp.php">Employee</a></li>
               <li><a href="addProd.php">Product</a></li>
+              <li><a href="addInv.php">Inventory</a></li>
             </ul>
           </li>
 

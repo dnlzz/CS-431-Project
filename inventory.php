@@ -21,6 +21,7 @@ select * products that are in that warehouse
 
 ?>
 
+
 <div class="container-fluid feature">
 	<div class="content">
 
@@ -48,16 +49,40 @@ select * products that are in that warehouse
 	  	<input type="Submit" value="Select" name="submit" class="btn btn-default">		
 	  </div>
 	</form>
-	</div>
-</div>
 
 <?php 
 
 	if (isset($_POST['submit'])) {
 		$wID = $_POST['warehouse'];
-		echo $wID;
+		$sql = "SELECT p.Product_name FROM PRODUCT p
+				LEFT JOIN INVENTORY i
+				ON p.Product_ID = i.Product_ID";
+		$result = mysql_query($sql);
+?>
+	
+	<table class="table table-wrapper" colspan="0">
+
+<?php
+		while ($prod = mysql_fetch_assoc($result)) {
+			$pName = $prod['Product_name'];
+	
+	?>		
+	 <tr>
+		<td>
+			<?php echo $pName; ?>
+		</td>       	
+     </tr>
+
+ <?php
+		}
+
 	}
 
  ?>
+		</table>
+	</div>
+</div>
+
+
 
 <?php include("footer.php"); ?>
