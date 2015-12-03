@@ -41,7 +41,7 @@
             <ul class="dropdown-menu">
               <li><a href="updateEmp.php">Employee</a></li>
               <li><a href="updateProd.php">Product</a></li>
-              <li><a href="#">Inventory</a></li>
+              <li><a href="inventory.php">Inentory</a></li>
             </ul>
           </li>
 
