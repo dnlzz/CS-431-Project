@@ -50,7 +50,7 @@
 
 <?php 
 
-	if (isset($_POST['submit'])) {
+	if (isset($_POST['submit'])){
 		$wID = $_POST['warehouse'];
 		$arr = explode(', ', $wID);
 		$wID = $arr[0];

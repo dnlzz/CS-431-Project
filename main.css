@@ -22,6 +22,14 @@ ul.unstyled {
 	padding: 0% 25%;
 }
 
+#myModalEmp {
+	color: black;
+}
+
+#myModalInv {
+	color: black;
+}
+
 .navbar-wrapper {
 	margin-bottom: -22px;
 }
