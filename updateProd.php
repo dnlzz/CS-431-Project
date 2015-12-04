@@ -22,9 +22,12 @@
 
 	<?php 
 
-		$s = "SELECT * FROM PRODUCT p, DEPARTMENT d, SUPPLIER s
+		$s = "SELECT * 
+			  FROM PRODUCT p, DEPARTMENT d, SUPPLIER s
 			  WHERE p.Department_ID = d.Department_ID
-			  AND p.Supplier_ID = s.Supplier_ID"; 
+			  AND p.Supplier_ID = s.Supplier_ID
+			  ORDER BY d.Department_ID";
+			  
 
 		( $t = mysql_query($s) ) or die ( mysql_error() ); //Sends sql query to database
 	?>

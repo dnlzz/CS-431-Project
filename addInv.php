@@ -28,16 +28,15 @@
 		$add_sql = "INSERT INTO INVENTORY (Product_ID, Warehouse_ID, Number_of_item_in_stock)
 					VALUES ('$prodID', '$wareID', '$quantity');";
 
-		$res = ( mysql_query($add_sql) ) or die(mysql_error());
-
-		if ($res) { echo '<script type="text/javascript"> alert(\'Product added to inventory!\'); </script>'; }
-
+		if ( mysql_query($add_sql) ) { echo '<script type="text/javascript"> alert(\'Product added to inventory!\'); </script>'; }
+		else { echo '<script type="text/javascript"> alert(\'Product already in inventory! Try another product.\'); </script>'; }
 
 	}
 ?>
 
-<div class="container-fluid feature">
+<div class="container-fluid" id="addEmployeeDiv">
 	<div class="content">
+
 	<h1>Add Inventory Items</h1>
 	<br>
 	<div class="form-group">
@@ -113,7 +112,7 @@
 
 <?php } ?>
 
-
+		</div>
 	</div>
 </div>
 

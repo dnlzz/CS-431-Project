@@ -34,11 +34,6 @@
 			    	$price = test_input($_POST["price"]);
 		   		}
 
-			   	if (empty($_POST["qty"])) {
-			    	$quantityErr = "Quantity is required";
-			   	} else {
-			    	$quantity = test_input($_POST["qty"]);
-		   		}
 
 			   	if (empty($_POST["department"])) {
 			    	$departmentErr = "Department is required";
@@ -91,10 +86,6 @@
 	    	<input type="text" class="form-control" name="price" placeholder="ex 4.35">
 		  </div>
 
-  		  <div class="form-group">
-	    	<label for="qty">Quantity  *<span class="error"><?php echo $departmentErr;?></span></label>
-	    	<input type="text" class="form-control" name="qty" placeholder="Quantity">
-		  </div>
 
 		  <div class="form-group">
 	    	<label for="department">Department (select one)  *<span class="error"><?php echo $departmentErr;?></span></label>

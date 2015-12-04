@@ -18,7 +18,7 @@
 ?>
 
 
-<div class="container-fluid feature">
+<div class="container-fluid feature" id="addEmployeeDiv">
 	<div class="content">
 
 	<h1>Manage Inventory</h1>
@@ -52,7 +52,7 @@
 		$wID = $_POST['warehouse'];
 		$arr = explode(', ', $wID);
 		$location = $arr[1];
-		$sql = "SELECT p.Product_name
+		$sql = "SELECT p.Product_name, i.Number_of_item_in_stock, p.Product_ID, w.Warehouse_ID
 				FROM PRODUCT p
 				LEFT JOIN INVENTORY i on p.Product_ID = i.Product_ID
 				LEFT JOIN WAREHOUSE w on i.Warehouse_ID = w.Warehouse_ID
@@ -65,16 +65,19 @@
 
 <?php
 		while ($prod = mysql_fetch_assoc($result)) {
+			$pID = $prod['Product_ID'];
+			$wID = $prod['Warehouse_ID'];
 			$pName = $prod['Product_name'];
+			$numStock = $prod['Number_of_item_in_stock'];
 	
 	?>		
 	 <tr>
 		<td>
 			<?php echo $pName; ?>
 		</td> 
-		<td>Display Quantity</td>
-		<td>Edit Button</td>
-      	<td>Remove BUtton</td>      	
+		<td><?php echo $numStock; ?></td>
+		<td><a class="btn btn-default" name = "update" href="editInv.php?pid=<?php echo $pID; ?>&wid=<?php echo $wID; ?>">Edit</a></td>
+      	<td><a class="btn btn-danger" name="delete" href="deleteInv.php?pid=<?php echo $pID; ?>&wid=<?php echo $wID; ?>">Delete</a></td>      	
      </tr>
 
  <?php
