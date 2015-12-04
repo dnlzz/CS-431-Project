@@ -72,6 +72,10 @@
 
 		<h3><?php echo $success; ?></h3>
 
+		<div id="inner">
+			<h1>Add Product...</h1>
+		</div>
+
 		<h5>* Field is Required</h5>
 
 

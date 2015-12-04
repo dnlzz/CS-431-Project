@@ -43,7 +43,8 @@
 	<?php } ?>
 
 	  	</select>
-	  	<input type="Submit" value="Select" name="submit" class="btn btn-default">		
+	  	</div>
+	  	<button type="Submit" name="submit" class="btn btn-success">Select</button>				
 	  </div>
 	</form>
 

@@ -109,7 +109,10 @@
 			    	$sql = "INSERT INTO EMPLOYEE (Employee_first_name, Employee_last_name, Employee_salary, Employee_date_of_birth, Employee_phone, Employee_street_name, Employee_city, Employee_state, Department_ID) VALUES ('$firstName', '$lastName', '$salary', '$dob', '$phNum', '$street', '$city', '$state', '$department');";
 			    	
 			    	if ( mysql_query($sql) ) {
-			    		$success = "Employee added!";	
+    					echo ("<SCRIPT LANGUAGE='JavaScript'>
+			    			window.alert('Inventory Item Added!')
+			    			window.location.href='./addInv.php';
+			    			</SCRIPT>");	
 			    	} else {
 			    		echo "ERROR ADDING EMPLOYEE";
 		    		}
@@ -127,7 +130,9 @@
 
 		?>
 
-		<h3><?php echo $success; ?></h3>
+		<div id="inner">
+			<h1>Add Employee</h1>
+		</div>
 
 		<h5>* Field is Required</h5>
 

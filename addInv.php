@@ -22,8 +22,9 @@
 
 <div class="container-fluid" id="addEmployeeDiv">
 	<div class="content">
-
-	<h1>Add Inventory Items</h1>
+		<div id="inner">
+		<h1>Add Inventory Items</h1>
+		</div>
 	<br>
 	<div class="form-group">
 		<!-- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"> -->
@@ -44,7 +45,8 @@
 	<?php } ?>
 
 	  	</select>
-	  	<input type="Submit" value="Select" name="submit" class="btn btn-default">		
+	  	</div>
+	  	<button type="Submit" name="submit" class="btn btn-success">Select</button>		
 	  </div>
 	</form>
 
