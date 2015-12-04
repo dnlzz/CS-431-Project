@@ -73,6 +73,7 @@
 
 		mysql_query($uSQL) or die(mysql_error());
 		header("Location: inventory.php");
+
 	}
 
 	if (isset($_POST['cancel'])) {

@@ -24,7 +24,8 @@
 	<h1>Manage Inventory</h1>
 	<br>
 	<div class="form-group">
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+		<!-- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"> -->
+		<form action="dispEditInv.php" method="post">
 			<select class="form-control" name="warehouse">
 			<option value="0" selected="selected">Select Warehouse...</option>
 
@@ -46,47 +47,7 @@
 	  </div>
 	</form>
 
-<?php 
 
-	if (isset($_POST['submit'])) {
-		$wID = $_POST['warehouse'];
-		$arr = explode(', ', $wID);
-		$location = $arr[1];
-		$sql = "SELECT p.Product_name, i.Number_of_item_in_stock, p.Product_ID, w.Warehouse_ID
-				FROM PRODUCT p
-				LEFT JOIN INVENTORY i on p.Product_ID = i.Product_ID
-				LEFT JOIN WAREHOUSE w on i.Warehouse_ID = w.Warehouse_ID
-				WHERE w.Warehouse_ID = '$wID'";
-		$result = mysql_query($sql);
-?>
-	
-	<table class="table table-wrapper" colspan="0">
-		<h3>Managing <?php echo $location; ?> Warehouse</h3>
-
-<?php
-		while ($prod = mysql_fetch_assoc($result)) {
-			$pID = $prod['Product_ID'];
-			$wID = $prod['Warehouse_ID'];
-			$pName = $prod['Product_name'];
-			$numStock = $prod['Number_of_item_in_stock'];
-	
-	?>		
-	 <tr>
-		<td>
-			<?php echo $pName; ?>
-		</td> 
-		<td><?php echo $numStock; ?></td>
-		<td><a class="btn btn-default" name = "update" href="editInv.php?pid=<?php echo $pID; ?>&wid=<?php echo $wID; ?>">Edit</a></td>
-      	<td><a class="btn btn-danger" name="delete" href="deleteInv.php?pid=<?php echo $pID; ?>&wid=<?php echo $wID; ?>">Delete</a></td>      	
-     </tr>
-
- <?php
-		}
-
-	}
-
- ?>
-		</table>
 	</div>
 </div>
 

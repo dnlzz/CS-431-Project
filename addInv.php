@@ -17,22 +17,8 @@
 
 ?>
 
+<!-- POST addSubit -->
 
-<?php 
-
-	if (!empty($_POST['addSubmit'])) {
-		$prodID = $_POST['product'];
-		$wareID = $_POST['wareID'];
-		$quantity = $_POST['qty'];
-
-		$add_sql = "INSERT INTO INVENTORY (Product_ID, Warehouse_ID, Number_of_item_in_stock)
-					VALUES ('$prodID', '$wareID', '$quantity');";
-
-		if ( mysql_query($add_sql) ) { echo '<script type="text/javascript"> alert(\'Product added to inventory!\'); </script>'; }
-		else { echo '<script type="text/javascript"> alert(\'Product already in inventory! Try another product.\'); </script>'; }
-
-	}
-?>
 
 <div class="container-fluid" id="addEmployeeDiv">
 	<div class="content">
@@ -40,7 +26,8 @@
 	<h1>Add Inventory Items</h1>
 	<br>
 	<div class="form-group">
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+		<!-- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"> -->
+		<form action="dispAddInv.php" method="post">
 			<select class="form-control" name="warehouse">
 			<option value="0" selected="selected">Select Warehouse...</option>
 
@@ -61,56 +48,7 @@
 	  </div>
 	</form>
 
-<?php 
 
-	if (isset($_POST['submit'])) {
-		$wID = $_POST['warehouse'];
-		$arr = explode(', ', $wID);
-		$wID = $arr[0];
-		$location = $arr[1];
-?>
-	
-	<h3>Add Product to <?php echo $location; ?> Warehouse</h3>
-
-	<?php 
-
-		$sql = "SELECT * FROM PRODUCT";
-		$result = ( mysql_query($sql) ) or die( mysql_error() );
-
-	 ?>
-
-	<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-
-	<input type="hidden" name="wareID" value="<?php echo $wID; ?>">
-	
-	<div class="form-group">
-		<select class="form-control" name="product">
-		<option value="0" selected="selected">Select Product...</option>
-	
-	<?php 	
-
-	while ($row = mysql_fetch_assoc($result)) {
-		$pID = $row['Product_ID'];
-		$pName = $row['Product_name'];
-	?>
-		
-    	<option value="<?php echo $pID; ?>"><?php echo $pName; ?></option>
-	
-	<?php } ?>
-
-  		</select>
-
-	<div class="form-group">
-		<label for="qty">Quantity</label>
-	    <input type="text" class="form-control" name="qty" placeholder="Quantity">
-	</div>
-
-    <input type="Submit" value="Stock it!" name="addSubmit" class="btn btn-success">		
-
-	</form>
-
-
-<?php } ?>
 
 		</div>
 	</div>
