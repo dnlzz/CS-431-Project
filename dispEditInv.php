@@ -37,6 +37,11 @@
 	<table class="table table-wrapper" colspan="0">
 		<h3>Managing <?php echo $location; ?> Warehouse</h3>
 
+		<tr>
+			<th>Product</th>
+			<th>Quantity in Stock</th>
+		</tr>
+
 <?php
 		while ($prod = mysql_fetch_assoc($result)) {
 			$pID = $prod['Product_ID'];
