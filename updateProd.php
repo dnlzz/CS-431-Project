@@ -51,7 +51,7 @@
 
 	?>
 
-
+		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 
              <tr>
 				<td>
@@ -74,7 +74,7 @@
                 	<a class="btn btn-danger" name="delete" href="delete.php?id=<?php echo $id; ?>">Delete</a>
                 </td>
              </tr>
-             
+         </form>
 
 
     <?php endwhile ; ?>
