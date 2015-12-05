@@ -110,8 +110,8 @@
 			    	
 			    	if ( mysql_query($sql) ) {
     					echo ("<SCRIPT LANGUAGE='JavaScript'>
-			    			window.alert('Inventory Item Added!')
-			    			window.location.href='./addInv.php';
+			    			window.alert('Employee Added!')
+			    			window.location.href='./addEmp.php';
 			    			</SCRIPT>");	
 			    	} else {
 			    		echo "ERROR ADDING EMPLOYEE";

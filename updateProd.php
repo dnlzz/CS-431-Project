@@ -25,19 +25,34 @@
 		$s = "SELECT * 
 			  FROM PRODUCT p, DEPARTMENT d, SUPPLIER s
 			  WHERE p.Department_ID = d.Department_ID
-			  AND p.Supplier_ID = s.Supplier_ID
-			  ORDER BY d.Department_ID";
+			  AND p.Supplier_ID = s.Supplier_ID";
 			  
+	  	  	//added here
+		  if ($_GET['sort'] == 'product') {
+		  	$s = $s . " ORDER BY p.Product_name";
+		  }
+
+		  if ($_GET['sort'] == 'price') {
+		  	$s = $s . " ORDER BY p.Product_price";
+		  }
+
+		  if ($_GET['sort'] == 'dept') {
+		  	$s = $s . " ORDER BY d.Department_name";
+		  }
+
+		if ($_GET['sort'] == 'supplier') {
+		  	$s = $s . " ORDER BY s.Supplier_name";
+		  }
 
 		( $t = mysql_query($s) ) or die ( mysql_error() ); //Sends sql query to database
 	?>
 		<div class="container">
           <table class="table table-wrapper" colspan="0">
           <tr>
-          	<th>Product</th>
-          	<th>Price</th>
-          	<th>Department</th>
-          	<th>Supplier</th>
+          	<th><a href="updateProd.php?sort=product">Product</a></th>
+          	<th><a href="updateProd.php?sort=price">Price</a></th>
+          	<th><a href="updateProd.php?sort=dept">Department</a></th>
+          	<th><a href="updateProd.php?sort=supplier">Supplier</a></th>
           </tr>
 
 	<?php

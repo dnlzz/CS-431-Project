@@ -25,6 +25,35 @@
 		$s = "SELECT * FROM EMPLOYEE e, DEPARTMENT d
 			  WHERE e.Department_ID = d.Department_ID"; 
 
+	  	//added here
+			  if ($_GET['sort'] == 'name') {
+			  	$s = $s . " ORDER BY e.Employee_last_name";
+			  }
+
+  			  if ($_GET['sort'] == 'dob') {
+			  	$s = $s . " ORDER BY e.Employee_date_of_birth";
+			  }
+
+  			  if ($_GET['sort'] == 'street') {
+			  	$s = $s . " ORDER BY e.Employee_street_name";
+			  }
+
+  			  if ($_GET['sort'] == 'city') {
+			  	$s = $s . " ORDER BY e.Employee_city";
+			  }
+
+  			  if ($_GET['sort'] == 'state') {
+			  	$s = $s . " ORDER BY e.Employee_state";
+			  }
+
+  			  if ($_GET['sort'] == 'salary') {
+			  	$s = $s . " ORDER BY e.Employee_salary";
+			  }
+
+  			  if ($_GET['sort'] == 'dept') {
+			  	$s = $s . " ORDER BY d.Department_name";
+			  }
+
 		( $t = mysql_query($s) ) or die ( mysql_error() ); //Sends sql query to database
 
 	?>
@@ -32,13 +61,13 @@
 		<table class="table table-wrapper" colspan="0">
 
 		<tr>
-			<th>Name</th>
-			<th>Birth Date</th>
-			<th>Street</th>
-			<th>City</th>
-			<th>State</th>
-			<th>Salary</th>
-			<th>Department</th>
+			<th><a href="updateEmp.php?sort=name">Name</a></th>
+			<th><a href="updateEmp.php?sort=dob">Birth Date</a></th>
+			<th><a href="updateEmp.php?sort=street">Street</a></th>
+			<th><a href="updateEmp.php?sort=city">City</a></th>
+			<th><a href="updateEmp.php?sort=state">State</a></th>
+			<th><a href="updateEmp.php?sort=salary">Salary</a></th>
+			<th><a href="updateEmp.php?sort=dept">Department</a></th>
 		</tr>
 
 	<?php
