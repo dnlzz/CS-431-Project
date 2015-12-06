@@ -71,7 +71,7 @@
 	?>
 
 		<h3><?php echo $success; ?></h3>
-
+	<div class="prodHeight">
 		<div id="inner">
 			<h1>Add Product...</h1>
 		</div>
@@ -115,6 +115,7 @@
 
 		  <button type="submit" class="btn btn-success">Add Product</button>
 		</form>
+		</div>
 	</div>
 </div>
 

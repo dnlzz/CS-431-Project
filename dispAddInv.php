@@ -59,7 +59,7 @@
 	
 <div class="container-fluid" id="addEmployeeDiv">
 	<div class="content">
-
+		<div class="dispAddHeight">
 	<h3>Add Product to <?php echo $location; ?> Warehouse</h3>
 	<br>
 	
@@ -102,7 +102,7 @@
 
 
 <?php } ?>
-
+		</div>
 		</div>
 	</div>
 </div>

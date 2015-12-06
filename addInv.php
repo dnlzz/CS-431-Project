@@ -22,9 +22,10 @@
 
 <div class="container-fluid" id="addEmployeeDiv">
 	<div class="content">
-		<div id="inner">
-		<h1>Add Inventory Items</h1>
-		</div>
+		<div class="invHeight">
+			<div id="inner">
+			<h1>Add Inventory Items</h1>
+			</div>
 	<br>
 	<div class="form-group">
 		<!-- <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post"> -->
@@ -51,7 +52,7 @@
 	</form>
 
 
-
+			
 		</div>
 	</div>
 </div>

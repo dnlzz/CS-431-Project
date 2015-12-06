@@ -1,3 +1,7 @@
+body {
+	background-color: #333;
+}
+
 footer {
 	background-color: #333;
 	color: #eee;
@@ -11,6 +15,22 @@ ul.unstyled {
 .content {
 	margin: 50px 50px;	
 	color: #eee;
+}
+
+.prodHeight {
+	margin: 117px 0px;
+}
+
+.invHeight {
+	margin: 150px 0px 335px 0px;
+}
+
+.mInvHeight {
+	margin: 150px 0px 345px 0px;
+}
+
+.dispAddHeight {
+	margin: 150px 0px 291px 0px;	
 }
 
 #addEmployeeDiv {

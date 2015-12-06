@@ -20,7 +20,7 @@
 
 <div class="container-fluid feature" id="addEmployeeDiv">
 	<div class="content">
-
+		<div class="mInvHeight">
 	<h1>Manage Inventory</h1>
 	<br>
 	<div class="form-group">
@@ -48,7 +48,7 @@
 	  </div>
 	</form>
 
-
+		</div>
 	</div>
 </div>
 
