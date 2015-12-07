@@ -88,6 +88,31 @@
 		  <div class="form-group">
 	    	<label for="department">Department (select one)</label><br>
 				<select class="form-control" name="ud_department">
+
+			<option value="0">Select Department...</option>
+
+		<?php 	
+
+			$sql = "SELECT * FROM DEPARTMENT
+					ORDER BY Department_name";
+
+			$result = ( mysql_query($sql) ) or die( mysql_error() );
+
+		while ($row = mysql_fetch_assoc($result)) {
+			$dID = $row['Department_ID'];
+			$dName = $row['Department_name'];
+		?>
+		
+	    <option value="<?php echo $dID; ?>" <?php if ($department == $dID) echo 'selected="selected"'; ?> ><?php echo $dName; ?></option>
+	
+	<?php } ?>
+
+	  	</select>
+	  	</div>
+<!--
+		  <div class="form-group">
+	    	<label for="department">Department (select one)</label><br>
+				<select class="form-control" name="ud_department">
 				    <option value="1" <?php if ($department == 1) echo 'selected="selected"'; ?> >Produce</option>
 				    <option value="2" <?php if ($department == 2) echo 'selected="selected"'; ?> >Meat</option>
 				    <option value="3" <?php if ($department == 3) echo 'selected="selected"'; ?> >Seafood</option>
@@ -98,6 +123,7 @@
 				    <option value="8" <?php if ($department == 8) echo 'selected="selected"'; ?> >Frozen</option>
 			  	</select>		
 		  </div>
+  -->
 		<br>
 		<input type="Submit" value="Update" class="btn btn-success" name="upSubmit">
 		<input type="Submit" value="Cancel" class="btn btn-default" name="cancel">
@@ -115,7 +141,10 @@
 	if (isset($_POST['upSubmit'])) {
 		$uSQL = "UPDATE EMPLOYEE SET Employee_first_name='$_POST[ud_firstName]', Employee_last_name='$_POST[ud_lastName]', Employee_salary='$_POST[ud_salary]', Employee_date_of_birth='$_POST[ud_dob]', Employee_phone='$_POST[ud_phNum]', Employee_street_name='$_POST[ud_address]', Employee_city='$_POST[ud_city]', Employee_state='$_POST[ud_state]', Department_ID='$_POST[ud_department]' WHERE Employee_ID = '$_POST[ID]'";
 		mysql_query($uSQL) or die(mysql_error());
-		header("Location: updateEmp.php");
+		echo ("<SCRIPT LANGUAGE='JavaScript'>
+			window.alert('Employee Info Updated!')
+			window.location.href='./updateEmp.php';
+			</SCRIPT>");		
 	}
 
 	if (isset($_POST['cancel'])) {

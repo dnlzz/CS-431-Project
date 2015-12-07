@@ -16,7 +16,10 @@ if(isset($_GET['id']))
 {
 	$id=$_GET['id'];
 	$query = mysql_query("DELETE FROM EMPLOYEE where Employee_ID = '$id'");
-	header("Location: updateEmp.php");
+	echo ("<SCRIPT LANGUAGE='JavaScript'>
+		window.alert('Employee Removed!')
+		window.location.href='./updateEmp.php';
+		</SCRIPT>");
 }
 
 ?>

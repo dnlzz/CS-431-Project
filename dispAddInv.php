@@ -65,7 +65,8 @@
 	
 	<?php 
 
-		$sql = "SELECT * FROM PRODUCT";
+		$sql = "SELECT * FROM PRODUCT
+		ORDER BY Product_name";
 		$result = ( mysql_query($sql) ) or die( mysql_error() );
 
 	 ?>

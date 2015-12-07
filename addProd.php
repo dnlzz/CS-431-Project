@@ -52,7 +52,10 @@
 			    {
 			    	$sql = "INSERT INTO PRODUCT (Product_name, Product_price, Department_ID, Supplier_ID) VALUES ('$product', '$price', '$department', '$supplier');";
 			    	if ( mysql_query($sql) ) {
-			    		$success = "Product added!";	
+			    		echo ("<SCRIPT LANGUAGE='JavaScript'>
+			    			window.alert('Product Added!')
+			    			window.location.href='./addProd.php';
+			    			</SCRIPT>");	
 			    	} else {
 			    		echo "ERROR ADDING PRODUCT";
 		    		}
@@ -70,7 +73,6 @@
 
 	?>
 
-		<h3><?php echo $success; ?></h3>
 	<div class="prodHeight">
 		<div id="inner">
 			<h1>Add Product...</h1>
@@ -90,7 +92,58 @@
 	    	<input type="text" class="form-control" name="price" placeholder="ex 4.35">
 		  </div>
 
+		  <div class="form-group">
+	    	<label for="department">Department (select one)  *<span class="error"><?php echo $departmentErr;?></span></label><br>
+				<select class="form-control" name="department">
 
+			<option value="0" selected="selected">Select Department...</option>
+
+		<?php 	
+
+			$sql = "SELECT * FROM DEPARTMENT ORDER BY Department_name";
+
+			$result = ( mysql_query($sql) ) or die( mysql_error() );
+
+		while ($row = mysql_fetch_assoc($result)) {
+			$dID = $row['Department_ID'];
+			$dName = $row['Department_name'];
+		?>
+		
+	    <option value="<?php echo $dID; ?>"><?php echo $dName; ?></option>
+	
+	<?php } ?>
+
+	  	</select>
+	  	</div>
+
+
+		  <div class="form-group">
+	    	<label for="supplier">Supplier (select one)  *<span class="error"><?php echo $departmentErr;?></span></label><br>
+				<select class="form-control" name="supplier">
+
+			<option value="0" selected="selected">Select Supplier...</option>
+
+
+		<?php 	
+
+			$sql = "SELECT * FROM SUPPLIER ORDER BY Supplier_name";
+
+			$result = ( mysql_query($sql) ) or die( mysql_error() );
+
+		while ($row = mysql_fetch_assoc($result)) {
+			$sID = $row['Supplier_ID'];
+			$sName = $row['Supplier_name'];
+		?>
+		
+	    <option value="<?php echo $sID; ?>"><?php echo $sName; ?></option>
+	
+	<?php } ?>
+
+	  	</select>
+	  	</div>
+
+
+<!--
 		  <div class="form-group">
 	    	<label for="department">Department (select one)  *<span class="error"><?php echo $departmentErr;?></span></label>
 				<select class="form-control" name="department">
@@ -112,7 +165,7 @@
 				    <option value="2">AVS Suppliers</option>
 			  	</select>		
 		  </div>
-
+-->
 		  <button type="submit" class="btn btn-success">Add Product</button>
 		</form>
 		</div>

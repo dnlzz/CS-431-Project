@@ -178,21 +178,31 @@
 	    	<input type="text" class="form-control" name="salary" placeholder="ex 36000">
 		  </div>
 
+
 		  <div class="form-group">
 	    	<label for="department">Department (select one)  *<span class="error"><?php echo $departmentErr;?></span></label><br>
 				<select class="form-control" name="department">
-				    <option value="1">Produce</option>
-				    <option value="2">Meat</option>
-				    <option value="3">Seafood</option>
-				    <option value="4">Bakery</option>
-				    <option value="5">Deli</option>
-				    <option value="6">Pharmacy</option>
-				    <option value="7">Specialty</option>
-				    <option value="8">Frozen</option>
-			  	</select>		
-		  </div>
-	
 
+			<option value="0" selected="selected">Select Department...</option>
+
+		<?php 	
+
+			$sql = "SELECT * FROM DEPARTMENT
+					ORDER BY Department_name";
+
+			$result = ( mysql_query($sql) ) or die( mysql_error() );
+
+		while ($row = mysql_fetch_assoc($result)) {
+			$dID = $row['Department_ID'];
+			$dName = $row['Department_name'];
+		?>
+		
+	    <option value="<?php echo $dID; ?>"><?php echo $dName; ?></option>
+	
+	<?php } ?>
+
+	  	</select>
+	  	</div>
 		  <button type="submit" class="btn btn-success" name="submit">Add Employee</button>
 		</form>
 	</div>

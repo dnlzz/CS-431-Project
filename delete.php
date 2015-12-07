@@ -16,8 +16,10 @@ if(isset($_GET['id']))
 {
 	$id=$_GET['id'];
 	$query = mysql_query("DELETE FROM PRODUCT where Product_ID = '$id'");
-	header("Location: updateProd.php");
-	
+	echo ("<SCRIPT LANGUAGE='JavaScript'>
+		window.alert('Product Removed!')
+		window.location.href='./updateProd.php';
+		</SCRIPT>");
 }
 
 ?>

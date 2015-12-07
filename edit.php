@@ -45,7 +45,58 @@
 		<label for="price">Price</label> 
 			<input type="text" name="ud_price" value="<?php echo $price; ?>" class="form-control"><br>
 	    
+		  <div class="form-group">
+	    	<label for="department">Department (select one)</label><br>
+				<select class="form-control" name="ud_department">
 
+			<option value="0">Select Department...</option>
+
+		<?php 	
+
+			$sql = "SELECT * FROM DEPARTMENT
+					ORDER BY Department_name";
+
+			$result = ( mysql_query($sql) ) or die( mysql_error() );
+
+		while ($row = mysql_fetch_assoc($result)) {
+			$dID = $row['Department_ID'];
+			$dName = $row['Department_name'];
+		?>
+		
+	    <option value="<?php echo $dID; ?>" <?php if ($department == $dID) echo 'selected="selected"'; ?> ><?php echo $dName; ?></option>
+	
+	<?php } ?>
+
+	  	</select>
+	  	</div>
+
+
+		  <div class="form-group">
+	    	<label for="supplier">Supplier (select one)</label><br>
+				<select class="form-control" name="ud_supplier">
+
+			<option value="0">Select Supplier...</option>
+
+		<?php 	
+
+			$sql = "SELECT * FROM SUPPLIER
+					ORDER BY Supplier_name";
+
+			$result = ( mysql_query($sql) ) or die( mysql_error() );
+
+		while ($row = mysql_fetch_assoc($result)) {
+			$sID = $row['Supplier_ID'];
+			$sName = $row['Supplier_name'];
+		?>
+		
+	    <option value="<?php echo $sID; ?>" <?php if ($supplier == $sID) echo 'selected="selected"'; ?> ><?php echo $sName; ?></option>
+	
+	<?php } ?>
+
+	  	</select>
+	  	</div>
+
+<!--
 	    <div class="form-group">
 	    	<label for="department">Department (select one)</label>
 				<select class="form-control" name="ud_department">
@@ -67,6 +118,8 @@
 				    <option value="2" <?php if ($supplier == 2) echo 'selected="selected"'; ?> >AVS Suppliers</option>
 			  	</select>		
 	    </div>
+-->
+
 		<br>
 		<input type="Submit" value="Update" class="btn btn-success" name="upSubmit">
 		<input type="Submit" value="Cancel" class="btn btn-default" name="cancel">
@@ -84,7 +137,10 @@
 	if (isset($_POST['upSubmit'])) {
 		$uSQL = "UPDATE PRODUCT SET Product_name='$_POST[ud_product]', Product_price='$_POST[ud_price]', Department_ID='$_POST[ud_department]', Supplier_ID='$_POST[ud_supplier]' WHERE Product_ID = '$_POST[ID]'";
 		mysql_query($uSQL) or die(mysql_error());
-		header("Location: updateProd.php");
+		echo ("<SCRIPT LANGUAGE='JavaScript'>
+			window.alert('Product Updated!')
+			window.location.href='./updateProd.php';
+			</SCRIPT>");
 	}
 
 	if (isset($_POST['cancel'])) {

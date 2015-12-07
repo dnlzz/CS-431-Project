@@ -18,7 +18,10 @@ if(isset($_GET['pid']) && isset($_GET['wid']))
 	$wid=$_GET['wid'];
 	$query = mysql_query("DELETE FROM INVENTORY where Product_ID = '$pid'
 							AND Warehouse_ID = '$wid'");
-	header("Location: inventory.php");
+		echo ("<SCRIPT LANGUAGE='JavaScript'>
+		window.alert('Inventory Item Removed!')
+		window.location.href='./inventory.php';
+		</SCRIPT>");
 }
 
 ?>
