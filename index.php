@@ -16,7 +16,7 @@
       <div class="row">
 	      <div class="col-md-2"></div>
 	        <div class="col-md-4">
-	          <h2>Feature: Inventory Management</h2>
+	          <h2>Inventory Management</h2>
 	          <p>Add, Edit, Update and Delete Inventory Items Across Multiple Locations. Life Changing!</p>
 	          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalInv">
  				Learn More &raquo;
@@ -42,7 +42,7 @@
 
 	        </div>
 	        <div class="col-md-4">
-	          <h2>Feature: Employess Management</h2>
+	          <h2>Employess Management</h2>
 	          <p>Add, Edit, Update and Delete Employees Across Multiple Departments. Amazing!</p>
 	          
 	          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModalEmp">
